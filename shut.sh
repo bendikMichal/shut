@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-VER="0.1"
+VER="0.11"
 
 if ! command -v dialog;
 	then
@@ -22,7 +22,7 @@ OPTIONS=(
 	2 "Reboot"
 )
 
-CHOICE=$(dialog --colors --title "$BLACK$TITLE" --backtitle "$BG_TITLE" --menu "tired already?" "$WIDTH" "$HEIGHT" "$MENU_HEIGHT" "${OPTIONS[@]}" 2>&1 > /dev/tty)
+CHOICE=$(dialog --colors --title "$BLACK$TITLE" --backtitle "$BG_TITLE v$VER" --menu "tired already?" "$WIDTH" "$HEIGHT" "$MENU_HEIGHT" "${OPTIONS[@]}" 2>&1 > /dev/tty)
 
 clear
 
