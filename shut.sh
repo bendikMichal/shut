@@ -10,6 +10,7 @@ if ! command -v dialog;
 fi
 
 BLACK="\Zb\Zu\Z7"
+KILL_CMD="killall xinit"
 
 WIDTH=20
 HEIGHT=40 
@@ -20,6 +21,7 @@ BG_TITLE="made by noTme"
 OPTIONS=( 
 	1 "Shutdown"
 	2 "Reboot"
+	3 "Exit to tui ($KILL_CMD)"
 )
 
 CHOICE=$(dialog --colors --title "$BLACK$TITLE" --backtitle "$BG_TITLE v$VER" --menu "tired already?" "$WIDTH" "$HEIGHT" "$MENU_HEIGHT" "${OPTIONS[@]}" 2>&1 > /dev/tty)
@@ -44,4 +46,6 @@ case $CHOICE in
 		shutdown -h now;;
 	2)
 		reboot;;
+	3)
+		$KILL_CMD;;
 esac
